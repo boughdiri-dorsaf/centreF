@@ -8,13 +8,13 @@
      by using e.target.data
     with ngModelChange ==  here comes the object as parameter-->
 
-      <select class="form-control"  [(ngModel)]='formateurSelection' (ngModelChange)='onFormateurSelection($event)'>
+      <select class="form-control"  [(ngModel)]='onFormateurSelection' (ngModelChange)='onFormateurSelection($event)'>
         <option *ngFor="let formateur of tabFormateurs" [ngValue]="formateur" >{{formateur.nom}} {{formateur.prenom}}</option>
       </select>
     </div>
     <div class="form-group">
       <label class="sous-titre">&nbsp;&nbsp;liste des sessions</label><br>
-      <select class="form-control" [(ngModel)]='sessionSelection' (ngModelChange)='onSessionSelection($event)'>
+      <select class="form-control" [(ngModel)]='onSessionSelection' (ngModelChange)='onSessionSelection($event)'>
         <option *ngFor="let session of tabSession" [ngValue]="session">{{session.nom}}</option>
       </select>
     </div>

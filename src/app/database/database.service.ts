@@ -10,6 +10,7 @@ import { sessionFormateur } from '../admin/model/session-formateur';
 export class DatabaseService {
 
   constructor() { }
+  target:EventTarget;
 
   createdatabase(){
 
@@ -24,12 +25,14 @@ export class DatabaseService {
      };
 
      request.onsuccess = function(event) {
-       db = event.target.result;
+      let target: any = event.target;
+      let db = target.result;
        //console.log(db);
 
      };
       request.onupgradeneeded = function(event) {
-      let db = event.target.result;
+        let target: any = event.target;
+        let db = target.result;
 
       //creation de db pour admin
       var objectStoreadmin = db.createObjectStore("admin",{autoIncrement : true });
@@ -99,7 +102,8 @@ export class DatabaseService {
   };
 
   request.onsuccess = function(event) {
-     const db =event.target.result;
+    let target: any = event.target;
+    let db = target.result;
 
      //console.log("success d'ouverture de base");
 
@@ -135,7 +139,8 @@ export class DatabaseService {
     };
 
     request.onsuccess = function(event) {
-    var bdd = event.target.result;
+      let target: any = event.target;
+      let bdd = target.result;
 
     //console.log("test succes "+ bdd);
 
@@ -163,7 +168,8 @@ export class DatabaseService {
     };
 
     request.onsuccess = function(event) {
-    var bdd = event.target.result;
+      let target: any = event.target;
+      let bdd = target.result;
 
     //console.log("test succes "+ bdd);
 
@@ -196,7 +202,8 @@ export class DatabaseService {
     };
 
     request.onsuccess = function(event) {
-    var bdd = event.target.result;
+      let target: any = event.target;
+      let bdd = target.result;
 
       var request = bdd.transaction(["session"], "readwrite").objectStore("session")
       for (var i in addItem){
@@ -219,7 +226,8 @@ export class DatabaseService {
     };
 
     request.onsuccess = function(event) {
-    var bdd = event.target.result;
+      let target: any = event.target;
+      let bdd = target.result;
 
     var objectStore = bdd.transaction(["session"]).objectStore(["session"]);
 
@@ -259,7 +267,8 @@ export class DatabaseService {
     };
 
     request.onsuccess = function(event) {
-    var bdd = event.target.result;
+      let target: any = event.target;
+      let bdd = target.result;
 
     var objectStore = bdd.transaction("formateur").objectStore("formateur");
 
@@ -299,7 +308,8 @@ export class DatabaseService {
     };
 
     request.onsuccess = function(event) {
-    var bdd = event.target.result;
+      let target: any = event.target;
+      let bdd = target.result;
     var request = bdd.transaction(["session_formateur"], "readwrite").objectStore("session_formateur")
       for (var i in tab){
         request.add({
@@ -321,7 +331,8 @@ export class DatabaseService {
     };
 
     request.onsuccess = function(event) {
-    var bdd = event.target.result;
+      let target: any = event.target;
+      let bdd = target.result;
     var objectStore = bdd.transaction(["formation"]).objectStore(["formation"]);
 
       objectStore.openCursor().onsuccess = function(event) {
@@ -359,7 +370,8 @@ export class DatabaseService {
     };
 
     request.onsuccess = function(event) {
-      var bdd = event.target.result;
+      let target: any = event.target;
+      let bdd = target.result;
 
       var transaction =bdd.transaction(["formation"]);
       var objectStore = transaction.objectStore("formation");
@@ -390,7 +402,8 @@ export class DatabaseService {
     };
 
     request.onsuccess = function(event) {
-    var bdd = event.target.result;
+      let target: any = event.target;
+      let bdd = target.result;
 
     //console.log("test succes "+ bdd);
 
@@ -427,7 +440,8 @@ export class DatabaseService {
     };
 
     request.onsuccess = function(event) {
-       const db =event.target.result;
+      let target: any = event.target;
+      let db = target.result;
 
        //console.log("success d'ouverture de base");
 
@@ -437,12 +451,12 @@ export class DatabaseService {
       var index = objectStore.index("numcin");
 
       index.get(cin).onsuccess = function(eventMail) {
-        if(eventMail.target.result == undefined){
+        if(this.result == undefined){
           alert("Cin non valid")
         }else{
           var indexpassword=objectStore.index("mpd")
             indexpassword.get(password).onsuccess=function(eventPassword){
-              if(eventPassword.target.result == undefined){
+              if(this.result == undefined){
                 alert("Password non valid")
               }
               sessionStorage.setItem("formateurConnect","active")
@@ -465,7 +479,8 @@ export class DatabaseService {
     };
 
     request.onsuccess = function(event) {
-    var bdd = event.target.result;
+      let target: any = event.target;
+      let bdd = target.result;
 
     var objectStore = bdd.transaction(["session_formateur"]).objectStore(["session_formateur"]);
       objectStore.openCursor().onsuccess = function(event) {
@@ -501,7 +516,8 @@ export class DatabaseService {
     };
 
     request.onsuccess = function(event) {
-    var bdd = event.target.result;
+      let target: any = event.target;
+      let bdd = target.result;
 
       var request = bdd.transaction(["candidat"],"readwrite").objectStore("candidat")
 
@@ -530,7 +546,8 @@ export class DatabaseService {
     };
 
     request.onsuccess = function(event) {
-       const db =event.target.result;
+      let target: any = event.target;
+      let db = target.result;
 
        //console.log("success d'ouverture de base");
 
