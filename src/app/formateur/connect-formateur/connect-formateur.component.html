@@ -1,0 +1,23 @@
+<div class="container">
+  <button type="button" class="btn float-left" aria-label="Close" routerLink="/about">
+    <span aria-hidden="true">&times;</span>&nbsp;Retour
+  </button>
+
+  <h3 class="text-center mt-3 titre mt-5">Connectez-Vous</h3><br />
+  <div class="col-md-6 mt-2 mr-auto ml-auto">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="mb-3">
+        <label for="cin" class="form-label sous-titre">Cin Formateur</label>
+        <input type="number" class="form-control" id="cin" required name="cin" aria-describedby="emailHelp" placeholder="Enter cin" ngModel>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label sous-titre">Password</label>
+        <input type="password" class="form-control" required id="password"name="password" placeholder="Password" ngModel>
+      </div>
+      <div class="col-md-8 mt-3">
+        <button type="submit" [disabled]="!f.form.valid" value="" class="btn btn-default float-right">Success</button>
+      </div>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,23 @@
+<h3 class="titre text-center mt-3">Ajouter Session-Formateur</h3>
+  <div class="container" class="mt-4 col-md-6 mr-auto ml-auto">
+    <div class="form-group">
+      <label class="sous-titre">&nbsp;&nbsp;liste des formateurs</label><br>
+
+
+      <!-- Sans ngModel : event comes as parameter, you'll have to find selectedData manually
+     by using e.target.data
+    with ngModelChange ==  here comes the object as parameter-->
+
+      <select class="form-control"  [(ngModel)]='formateurSelection' (ngModelChange)='onFormateurSelection($event)'>
+        <option *ngFor="let formateur of tabFormateurs" [ngValue]="formateur" >{{formateur.nom}} {{formateur.prenom}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="sous-titre">&nbsp;&nbsp;liste des sessions</label><br>
+      <select class="form-control" [(ngModel)]='sessionSelection' (ngModelChange)='onSessionSelection($event)'>
+        <option *ngFor="let session of tabSession" [ngValue]="session">{{session.nom}}</option>
+      </select>
+    </div>
+
+    <button class="btn mb-2 float-right" type="submit" (click)="ajouter()">Ajouter</button>
+  </div>

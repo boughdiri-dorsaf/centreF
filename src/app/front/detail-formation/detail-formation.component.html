@@ -1,0 +1,17 @@
+<div class="contaniner" *ngFor="let item of itemFormation">
+  <div class="mt-5 text-center center">
+    <h2 class="titre" *ngIf="item.niveau == 'debutant'" style="color:green">{{ item.titre }}</h2>
+    <h2 class="titre" *ngIf="item.niveau == 'intermediaire'" style="color:orange">{{ item.titre }}</h2>
+    <h2 class="titre" *ngIf="item.niveau == 'avance'" style="color:red">{{ item.titre }}</h2>
+    <hr class="bottom-line">
+  </div>
+  <img class="image mr-auto ml-auto" src="../../../assets/images/formation.jpg" alt="">
+  <div class="content">
+    <p class="paragraphe mt-5 ml-3">{{ item.description }}</p>
+    <p class="sous-titre mt-5 ml-3">Nombre d’heures de la formation : <b class="paragraphe">{{ item.chargehorraire }} heure / 1 mois</b></p>
+    <p class="paragraphe mt-5 ml-3"><button type="button" (click)="download(item.programme)">Telecharger programme : </button></p>
+    <p><button type="button" class="btn btn-default" routerLink="/connect_condidat">S'inscrire a la session</button></p>
+
+  </div>
+</div>
+

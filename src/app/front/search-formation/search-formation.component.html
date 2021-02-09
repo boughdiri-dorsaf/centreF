@@ -1,0 +1,29 @@
+  <form class="mt-4 col-md-8 mr-auto ml-auto">
+    <div class="row">
+      <div class="col-md-6">
+         <input type="search" class="form-control" placeholder="Entrez le nom de formation" aria-label="Search" #search>
+      </div>
+      <div class="col-md-2">
+        <button class="btn success" type="submit" (click)="rechercher(search.value)">Rechercher</button>
+      </div>
+    </div>
+  </form>
+
+  <br />
+
+  <div class="row">
+    <div class="container col-lg-4 col-sm-6 mb-4" *ngFor="let formation of tabFormations">
+        <div class="portfolio-item">
+          <img class="img-fluid image" src="../../../assets/images/formation.jpg" alt="">
+          <div class="overlay text-center">
+            <div class="text">
+              <b>{{ formation.titre }}</b><br>
+                 {{ formation.description }}<br>
+              <button class="btn success" type="submit" (click)="voirplus(formation.id)">Voir plus</button>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+

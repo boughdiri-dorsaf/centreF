@@ -1,0 +1,21 @@
+<h3 class="titre text-center mt-3">Ajouter Session</h3>
+  <div class="container" >
+    <form  #session="ngForm" (ngSubmit)="onSubmit(session)"  class="mt-4 col-md-6 mr-auto ml-auto">
+      <div class="form-group">
+        <input type="text"  class="form-control" id="nom" placeholder="nom de session" name="nom" ngModel required>
+      </div>
+      <div class="form-group">
+        <label for="date_debut">&nbsp;&nbsp;Date Debut de session :&nbsp;&nbsp;</label>
+        <input type="date" class="form-control" id="date_debut" name="date_debut" ngModel required>
+      </div>
+      <div class="form-group">
+        <label for="date_fin">&nbsp;&nbsp;Date Fin de session :&nbsp;&nbsp;</label>
+        <input type="date" class="form-control" id="date_fin" name="date_fin" ngModel required>
+      </div>
+      <div class="form-group">
+        <label for="plannig">&nbsp;&nbsp;Selectionner Programme :&nbsp;&nbsp;</label>
+        <input type="file"  id="plannig"  name="plannig" ngModel required>
+      </div>
+      <button type="submit" [disabled]="!session.form.valid" class="btn mb-2 float-right">Ajouter Session</button>
+    </form>
+  </div>

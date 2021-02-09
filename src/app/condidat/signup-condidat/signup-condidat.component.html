@@ -1,0 +1,42 @@
+<div class="container">
+  <button type="button" class="btn float-left" aria-label="Close" routerLink="/connect_condidat">
+    <span aria-hidden="true">&times;</span>&nbsp;Retour
+  </button>
+  <h3 class="text-center mt-3 titre mt-5">S'inscrire</h3>
+  <div class="col-md-6 mt-2 mr-auto ml-auto">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="mb-3">
+        <label for="name" class="form-label sous-titre">Nom</label>
+        <input type="text"  class="form-control" id="name" placeholder="nom" name="name" ngModel required>
+      </div>
+      <div class="mb-3">
+        <label for="prenom" class="form-label sous-titre">Prenom</label>
+        <input type="text" class="form-control" id="prenom"  placeholder="prenom" name="prenom" ngModel required>
+      </div>
+      <div class="mb-3">
+        <label for="cin" class="form-label sous-titre">Cin</label>
+        <input type="number"  class="form-control" id="cin" placeholder="cin" name="cin" ngModel required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label sous-titre">Email address</label>
+        <input type="email" class="form-control" id="email"  placeholder="email" name="email" ngModel required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label sous-titre">Password</label>
+        <input type="password" class="form-control"  id="password"  placeholder="password" name="password" ngModel required>
+      </div>
+      <div class="mb-3">
+        <label for="photo" class="form-label sous-titre">Photo : </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="file"  id="photo"  name="photo" ngModel required>
+      </div>
+      <div class="mb-3">
+        <label for="cv" class="form-label sous-titre">CV : </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="file"  id="cv"  name="cv" ngModel required>
+      </div>
+      <div class="col-md-8 mt-3">
+        <button type="submit" [disabled]="!f.form.valid" value="" class="btn btn-default float-right">Success</button>
+      </div>
+    </form>
+  </div>
+
+</div>
